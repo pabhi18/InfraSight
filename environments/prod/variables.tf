@@ -14,6 +14,5 @@ variable "db_username" {}
 variable "db_password" {}             
 variable "db_parameter_group_name" {}  
 variable "db_tag" {}                  
-variable "environment" {}  
 
 variable "aws_region" {}

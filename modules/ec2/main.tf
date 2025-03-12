@@ -12,7 +12,7 @@ resource "tls_private_key" "rsa" {
 }
 
 resource "aws_security_group" "instance_sg" {
-  name        = "cloudwatch-instance-sg"
+  name        = "cloudwatch-instance-sg-${var.environment}"
   description = "Allow SSH access"
   
   ingress {
@@ -41,12 +41,12 @@ resource "local_file" "infrasight-key-file" {
 }
 
 resource "aws_iam_policy" "cloud-watch-permission" {
-    name   = "cloud-watch-permission"
+    name   = "cloud-watch-permission-${var.environment}"
     policy = file("config/iam-policy.json")
 }
 
 resource "aws_iam_role" "ec2-role" {
-    name               = "ec2-role"
+    name               = "ec2-role-${var.environment}"
     assume_role_policy = file("config/iam-role.json")
 }
 
@@ -56,7 +56,7 @@ resource "aws_iam_role_policy_attachment" "ec2-cloudwatch-attachment" {
 }
 
 resource "aws_iam_instance_profile" "ec2_profile" {
-  name = "ec2-cloudwatch-profile"
+  name = "ec2-cloudwatch-profile-${var.environment}"
   role = aws_iam_role.ec2-role.name
 }
 

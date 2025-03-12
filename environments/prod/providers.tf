@@ -6,11 +6,12 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket          = "infrasight-statefile/statefile-prod"
-    key             = "infrastate-statelock"
-    region          = "us-east-1"
-  }
+    backend "s3" {
+        bucket         = "infrasight-statefile"
+        key            = "statefile-prod/terraform.tfstate"
+        region         = "us-east-1"
+        dynamodb_table = "infrastate-statelock"
+    }
 }
 
 provider "aws" {
