@@ -39,8 +39,7 @@
 ## Environment Monitoring
 
 ### Dev Environment  
-<img src="assets/infrasight-dev.png" alt="Development Environment Monitoring" width="50%">
+![Development Environment Monitoring](assets/infrasight-dev.png)  
 
 ### Prod Environment  
-<img src="assets/infrasight-prod.png" alt="Production Environment Monitoring" width="50%">
-
+![Production Environment Monitoring](assets/infrasight-prod.png)  
