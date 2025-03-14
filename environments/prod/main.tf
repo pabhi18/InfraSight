@@ -19,3 +19,9 @@ module "rds" {
   db_tag                    = var.db_tag
   environment               = var.environment
 }
+
+module "cloudWatch" {
+    source      = "../../modules/cloudwatch"
+    filepath    = var.filepath
+    environment = var.environment
+}

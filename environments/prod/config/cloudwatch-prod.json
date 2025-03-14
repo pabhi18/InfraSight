@@ -1,0 +1,132 @@
+{
+    "widgets": [
+        {
+            "height": 15,
+            "width": 18,
+            "y": 0,
+            "x": 0,
+            "type": "text",
+            "properties": {
+                "markdown": "# InfraSight-Prod Monitoring\n\n\n## EC2 Monitoring\n\n\n### CPU Monitoring\n- **Metrics:** `cpu_usage_idle`, `cpu_usage_user`, `cpu_usage_system`, `cpu_usage_iowait`\n- Tracks CPU performance and detects high utilization.\n\n\n### Disk Monitoring\n- **Metrics:** `disk_used_percent`\n- Monitors critical partitions: `/` (root) and `/boot`.\n\n\n### Memory Monitoring\n- **Metrics:** `mem_used_percent`\n- Ensures RAM usage stays within healthy limits.\n\n\n## RDS Monitoring\n\n\n### CPU Utilization\n- **Metrics:** `CPUUtilization`\n- Tracks database CPU usage to detect high load conditions.\n\n\n### Database Connections\n- **Metrics:** `DatabaseConnections`\n- Monitors the number of active connections to ensure availability.\n\n\n### Disk Space Monitoring\n- **Metrics:** `FreeStorageSpace`\n- Tracks available disk space to prevent storage exhaustion.\n"
+            }
+        },
+        {
+            "height": 7,
+            "width": 6,
+            "y": 1,
+            "x": 18,
+            "type": "metric",
+            "properties": {
+                "view": "timeSeries",
+                "stacked": false,
+                "metrics": [
+                    [ "AWS/RDS", "CPUUtilization", "DBInstanceIdentifier", "terraform-20250312191548407100000001", { "period": 60 } ]
+                ],
+                "region": "us-east-1"
+            }
+        },
+        {
+            "height": 6,
+            "width": 6,
+            "y": 8,
+            "x": 18,
+            "type": "metric",
+            "properties": {
+                "sparkline": true,
+                "view": "singleValue",
+                "metrics": [
+                    [ "AWS/RDS", "DatabaseConnections", "DBInstanceIdentifier", "terraform-20250312191548407100000001", { "period": 60 } ]
+                ],
+                "region": "us-east-1"
+            }
+        },
+        {
+            "height": 8,
+            "width": 6,
+            "y": 14,
+            "x": 18,
+            "type": "metric",
+            "properties": {
+                "view": "gauge",
+                "metrics": [
+                    [ "AWS/RDS", "FreeStorageSpace", "DBInstanceIdentifier", "terraform-20250312191548407100000001", { "period": 60 } ]
+                ],
+                "region": "us-east-1",
+                "yAxis": {
+                    "left": {
+                        "min": 0,
+                        "max": 8.05
+                    }
+                }
+            }
+        },
+        {
+            "height": 1,
+            "width": 6,
+            "y": 0,
+            "x": 18,
+            "type": "text",
+            "properties": {
+                "markdown": "## Database",
+                "background": "transparent"
+            }
+        },
+        {
+            "height": 1,
+            "width": 18,
+            "y": 15,
+            "x": 0,
+            "type": "text",
+            "properties": {
+                "markdown": "## EC2 ",
+                "background": "transparent"
+            }
+        },
+        {
+            "height": 6,
+            "width": 6,
+            "y": 16,
+            "x": 12,
+            "type": "metric",
+            "properties": {
+                "sparkline": true,
+                "view": "singleValue",
+                "metrics": [
+                    [ "AWS/EC2", "CPUUtilization", "InstanceId", "i-06608bc439b5748de" ]
+                ],
+                "region": "us-east-1"
+            }
+        },
+        {
+            "height": 6,
+            "width": 6,
+            "y": 16,
+            "x": 6,
+            "type": "metric",
+            "properties": {
+                "view": "timeSeries",
+                "stacked": true,
+                "metrics": [
+                    [ "CWAgent", "mem_used_percent", "host", "ip-172-31-89-178" ]
+                ],
+                "region": "us-east-1"
+            }
+        },
+        {
+            "height": 6,
+            "width": 6,
+            "y": 16,
+            "x": 0,
+            "type": "metric",
+            "properties": {
+                "view": "timeSeries",
+                "stacked": false,
+                "metrics": [
+                    [ "CWAgent", "disk_used_percent", "path", "/", "host", "ip-172-31-89-178", "device", "xvda1", "fstype", "ext4" ],
+                    [ "...", "/boot", ".", ".", ".", "xvda16", ".", "." ]
+                ],
+                "region": "us-east-1"
+            }
+        }
+    ]
+}

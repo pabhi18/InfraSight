@@ -1,3 +1,5 @@
+variable "aws_region" {}
+
 #EC2 Instance
 variable "environment" {}
 variable "instance_name" {}
@@ -15,4 +17,5 @@ variable "db_password" {}
 variable "db_parameter_group_name" {}  
 variable "db_tag" {}                  
 
-variable "aws_region" {}
+#CloudWatch
+variable "filepath" {}
