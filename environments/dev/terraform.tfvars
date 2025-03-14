@@ -1,3 +1,5 @@
+aws_region = "us-east-1"
+
 #EC2 Instance
 environment    = "dev"
 instance_name  = "infrasight"
@@ -15,4 +17,6 @@ db_password              = "admin123"
 db_parameter_group_name  = "default.mysql8.0"
 db_tag                   = "infrasight-db-dev"
 
-aws_region = "us-east-1"
+#CloudWatch
+filepath = "config/cloudwatch-dev.json"
+
